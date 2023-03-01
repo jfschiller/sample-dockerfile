@@ -56,7 +56,7 @@ RUN chmod -R 755 /var/www/html
 
 # install all PHP dependencies
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
-RUN composer install --no-interaction --ignore-platform-reqs
+# RUN composer install --no-interaction --ignore-platform-reqs
 # RUN npm install
 # RUN npm run prod
 
@@ -69,6 +69,7 @@ RUN tree -L 3 $APP_HOME
 
 # activate php 7.3 by default
 RUN update-alternatives --set php /usr/bin/php7.4
+RUN a2dismod php8.2
 RUN a2enmod php7.4
 
 RUN a2enmod rewrite
