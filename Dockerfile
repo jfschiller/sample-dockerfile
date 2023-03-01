@@ -1,10 +1,6 @@
-# This is a standard Dockerfile for building a Go app.
-# It is a multi-stage build: the first stage compiles the Go source into a binary, and
-#   the second stage copies only the binary into an alpine base.
+FROM ubuntu:20.04
 
-# -- Stage 1 -- #
-# Compile the app.
-FROM httpd:alpine3.17
+ENV DEBIAN_FRONTEND=noninteractive
 
 #install all the system dependencies and enable PHP modules
 RUN apt-get update
